@@ -331,112 +331,116 @@
   });
 
   // map
-  const customStyle = [
-    // Example JSON style
-    {
-      "elementType": "geometry",
-      "stylers": [{ "color": "#F2F2F2" }]
-    },
-    {
-      "elementType": "labels.icon",
-      "stylers": [{ "visibility": "off" }]
-    },
-    {
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#4A4A4A" }]
-    },
-    {
-      "elementType": "labels.text.stroke",
-      "stylers": [{ "color": "#F2F2F2" }]
-    },
-    {
-      "featureType": "administrative",
-      "elementType": "geometry",
-      "stylers": [{ "color": "#F2F2F2" }]
-    },
-    {
-      "featureType": "poi",
-      "elementType": "geometry",
-      "stylers": [{ "color": "#F2F2F2" }]
-    },
-    {
-      "featureType": "poi",
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#757575" }]
-    },
-    {
-      "featureType": "road",
-      "elementType": "geometry",
-      "stylers": [{ "color": "#FEFEFE" }]
-    },
-    {
-      "featureType": "road",
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#FEFEFE" }]
-    },
-    {
-      "featureType": "road.highway",
-      "elementType": "geometry",
-      "stylers": [{ "color": "#FEFEFE" }]
-    },
-    {
-      "featureType": "road.highway",
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#FEFEFE" }]
-    },
-    {
-      "featureType": "transit",
-      "elementType": "geometry",
-      "stylers": [{ "color": "#F2F2F2" }]
-    },
-    {
-      "featureType": "water",
-      "elementType": "geometry",
-      "stylers": [{ "color": "#AAC4E6" }]
-    },
-    {
-      "featureType": "water",
-      "elementType": "labels.text.fill",
-      "stylers": [{ "color": "#AAC4E6" }]
+  if ($('body').hasClass('contact-page')) {
+    console.log("hi")
+    const customStyle = [
+      // Example JSON style
+      {
+        "elementType": "geometry",
+        "stylers": [{ "color": "#F2F2F2" }]
+      },
+      {
+        "elementType": "labels.icon",
+        "stylers": [{ "visibility": "off" }]
+      },
+      {
+        "elementType": "labels.text.fill",
+        "stylers": [{ "color": "#4A4A4A" }]
+      },
+      {
+        "elementType": "labels.text.stroke",
+        "stylers": [{ "color": "#F2F2F2" }]
+      },
+      {
+        "featureType": "administrative",
+        "elementType": "geometry",
+        "stylers": [{ "color": "#F2F2F2" }]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [{ "color": "#F2F2F2" }]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "labels.text.fill",
+        "stylers": [{ "color": "#757575" }]
+      },
+      {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [{ "color": "#FEFEFE" }]
+      },
+      {
+        "featureType": "road",
+        "elementType": "labels.text.fill",
+        "stylers": [{ "color": "#FEFEFE" }]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [{ "color": "#FEFEFE" }]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "labels.text.fill",
+        "stylers": [{ "color": "#FEFEFE" }]
+      },
+      {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [{ "color": "#F2F2F2" }]
+      },
+      {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [{ "color": "#AAC4E6" }]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [{ "color": "#AAC4E6" }]
+      }
+    ];
+  
+    function initMap() {
+      const mapOptions = {
+        center: { lat: 37.7749, lng: -122.4194 }, // San Francisco
+        zoom: 10,
+        styles: customStyle,
+      };
+  
+      const map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  
+      // Custom marker icon
+      const customIcon = {
+        url: "http://127.0.0.1:5500/assets/img/map/marker.png", // Replace with your custom marker URL
+        scaledSize: new google.maps.Size(40, 50), // Adjust size
+        origin: new google.maps.Point(0, 0), // Origin point
+        anchor: new google.maps.Point(25, 50), // Anchor point
+      };
+  
+      // Add a custom marker
+      const customMarker = new google.maps.Marker({
+        position: { lat: 37.7749, lng: -122.4194 },
+        map: map,
+        icon: customIcon, // Set the custom icon
+        title: "Custom Marker",
+      });
+  
+      // InfoWindow for the custom marker
+      const infoWindow = new google.maps.InfoWindow({
+        content: "<h3>San Francisco</h3><p>This is a custom marker!</p>",
+      });
+  
+      customMarker.addListener("click", function () {
+        infoWindow.open(map, customMarker);
+      });
     }
-  ];
-
-  function initMap() {
-    const mapOptions = {
-      center: { lat: 37.7749, lng: -122.4194 }, // San Francisco
-      zoom: 10,
-      styles: customStyle,
-    };
-
-    const map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-    // Custom marker icon
-    const customIcon = {
-      url: "http://127.0.0.1:5500/assets/img/map/marker.png", // Replace with your custom marker URL
-      scaledSize: new google.maps.Size(40, 50), // Adjust size
-      origin: new google.maps.Point(0, 0), // Origin point
-      anchor: new google.maps.Point(25, 50), // Anchor point
-    };
-
-    // Add a custom marker
-    const customMarker = new google.maps.Marker({
-      position: { lat: 37.7749, lng: -122.4194 },
-      map: map,
-      icon: customIcon, // Set the custom icon
-      title: "Custom Marker",
-    });
-
-    // InfoWindow for the custom marker
-    const infoWindow = new google.maps.InfoWindow({
-      content: "<h3>San Francisco</h3><p>This is a custom marker!</p>",
-    });
-
-    customMarker.addListener("click", function () {
-      infoWindow.open(map, customMarker);
-    });
+  
+    initMap();
   }
-
-  initMap();
+ 
 
 
 })(jQuery);
