@@ -415,7 +415,7 @@
       // Custom marker icon
       const customIcon = {
         url: "http://127.0.0.1:5500/assets/img/map/marker.png", // Replace with your custom marker URL
-        scaledSize: new google.maps.Size(40, 50), // Adjust size
+        scaledSize: new google.maps.Size(35, 50), // Adjust size
         origin: new google.maps.Point(0, 0), // Origin point
         anchor: new google.maps.Point(25, 50), // Anchor point
       };
