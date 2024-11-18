@@ -8,6 +8,8 @@
             padding-right: 16px;
             position: relative;
             z-index: 1;
+            margin-bottom: 5px;
+            display: inline-block;
             &::after{
                 position: absolute;
                 content: "";
@@ -33,6 +35,9 @@
             text-align: center;
             border-radius: 20px;
             padding: 60px;
+            @media #{$xs}{
+                padding: 30px;
+            }
             & i{
                 font-size: 50px;
                 margin-bottom: 25px;
@@ -43,6 +48,9 @@
                 color: #000;
                 line-height: 1.2;
                 margin-bottom: 30px;
+                @media #{$xs}{
+                    font-size: 24px;
+                }
             }
             & cite{
                 color: #0A0E1A;
@@ -56,6 +64,10 @@
         &-wrapper{
             border: 1px solid #57595C;
             padding: 25px 40px;
+            @media #{$xs}{
+                padding: 25px;
+                margin-bottom: 15px;
+            }
         }
         & span{
             color: #0A0E1A;
@@ -73,6 +85,10 @@
             line-height: 1;
             border-radius: 8px;
             @include transition(0.3s);
+            margin-bottom: 8px;
+            @media #{$xs}{
+                padding: 12px;
+            }
             &:hover{
                 background-color: var(--tp-theme-color);
                 color: #fff;
@@ -103,8 +119,16 @@
             list-style: none;
             & li{
                 margin-bottom: 60px;
+                
                 &.children{
                     padding-left: 100px;
+                    @media #{$xs}{
+                        padding-left: 20px;
+                    }
+                    @media #{$xxs}{
+                        padding-left: 10px;
+                    }
+                    
                 }
             }
         }
@@ -114,12 +138,23 @@
                 width: 120px;
                 height: 120px;
                 margin-right: 30px;
+                @media #{$xxs}{
+                    width: 60px;
+                    height: 60px;
+                    margin-right: 10px;
+                }
             }
         }
         &-text{
             overflow: hidden;
             position: relative;
             z-index: 1;
+            & p{
+                @media #{$xxs}{
+                    font-size: 14px;
+                }
+            }
+
             & span{
                 color: #57595C;
                 font-size: 15px;
@@ -141,6 +176,10 @@
     top: 0;
     font-size: 18px;
     color: #57595C;
+    @media #{$xs}{
+       position: static;
+       font-size: 14px;
+    }
     & i{
         margin-right: 5px;
         display: inline-block;
@@ -162,12 +201,32 @@
     z-index: 2;
     transform: translateY(-50%);
     left: 30px;
+    @media #{$lg , $md , $xs}{
+        height: 60px;
+        width: 100px;
+        left: 15px;
+        & i{
+            transform: translateY(-9px);
+        }
+    }
+    @media #{$xs}{
+        height: 50px;
+        width: 80px;
+        & i{
+            font-size: 30px;
+            transform: translateY(-21px);
+            display: inline-block;
+        }
+    }
     &-prev{
         transform: translateY(-50%) rotate(180deg);
     }
     &-next{
         left: auto;
         right: 30px;
+        @media #{$lg , $md , $xs}{
+            right: 15px;
+        }
     }
 }
 
@@ -195,6 +254,9 @@
         display: inline-block;
         margin-right: 7px;
         cursor: pointer;
+        @media #{$xs}{
+            margin-right: 0;
+        }
         & a{
             display: inline-block;
             height: 60px;
@@ -207,6 +269,11 @@
             color: #57595c;
             border-radius: 20px;
             @include transition(0.3s);
+            @media #{$xs}{
+                height: 40px;
+                width: 50px;
+                line-height: 38px;
+            }
             &:hover{
                 background-color: var(--tp-theme-color);
                 border-color: var(--tp-theme-color);
@@ -225,6 +292,9 @@
         background: #FBF6EF;
         padding: 40px;
         border-radius: 10px;
+        @media #{$lg , $md , $xs}{
+            padding: 25px;
+        }
         &-title{
             & span{
                 height: 10px;
@@ -296,14 +366,22 @@
 
 }
 
-.tp-blog-sidebar-post-item{
-    border-bottom: 1px solid #57595C;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    &:last-child{
-        border-bottom: 0;
-        padding-bottom: 0;
-        margin-bottom: 0;
+.tp-blog-sidebar-post{
+    &-item{
+        border-bottom: 1px solid #57595C;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        &:last-child{
+            border-bottom: 0;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        
+    }
+    &-thumb{
+        & img{
+            width: 100%;
+        }
     }
 }
 
@@ -321,6 +399,9 @@
         margin-bottom: 9px;
         @include transition(0.3s);
         text-transform: uppercase;
+        @media #{$lg , $md , $xs}{
+            padding: 10px;
+        }
         &:hover{
             background-color: var(--tp-theme-color);
             color: #fff;

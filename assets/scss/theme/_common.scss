@@ -185,9 +185,7 @@ img{
 	}
 	&-20{
 		font-size: 20px;
-		@media #{$md , $sm , $xs}{
-            font-size: 13px;
-        }
+		
 	}
 	&-24{
 		font-size: 24px;
@@ -241,7 +239,7 @@ img{
 	}
 }
 
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
 	@media #{$xs}{
 		padding-right: 24px !important;
 		padding-left: 24px !important;

@@ -3,6 +3,9 @@
 .tp-breadcrumb{
     &-title{
         font-size: 70px;
+        @media #{$xs}{
+            font-size: 60px;
+        }
     }
     &-space {
         padding-top: 235px;

@@ -191,6 +191,9 @@
     background: #FBF6EF;
     padding: 40px;
     border-radius: 20px;
+    @media #{$lg , $md , $xs}{
+        padding: 25px;
+    }
     & ul{
         & li{
             margin-bottom: 15px;
@@ -236,6 +239,14 @@
     }
     &-banner{
         border-radius: 20px;
+        & img{
+            width: 100%;
+            @media #{$lg , $md , $xs}{
+                height: 500px;
+                object-fit: cover;
+                object-position: top;
+            }
+        }
         &::before{
             content: "";
             position: absolute;
@@ -273,6 +284,12 @@
             text-align: center;
             line-height: 50px;
             border-radius: 50%;
+            flex: 0 0 auto;
         }
+    }
+}
+.tp-services-details-list-title{
+    @media #{$lg}{
+        font-size: 20px;
     }
 }

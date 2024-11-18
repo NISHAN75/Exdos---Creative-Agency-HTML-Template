@@ -323,6 +323,9 @@
             @include transition(0.3s);
             
         }
+        & img{
+            width: 100%;
+        }
     }
     &-item:hover{
         & .tp-portfolio-arrow{
@@ -418,12 +421,22 @@
         font-weight: 500;
         color: #57595C;
         margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
         &::before{
             content: "\f061";
             font-family: "Font Awesome 5 Pro";
             transform:rotate(-40deg);
             display: inline-block;
             margin-right: 7px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        & span{
+            padding-left: 25px;
+            overflow: hidden;
+            display: block;
         }
     }
 }

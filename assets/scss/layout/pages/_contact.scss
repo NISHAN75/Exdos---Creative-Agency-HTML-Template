@@ -38,6 +38,9 @@
     border: 1px solid #57595C;
     padding: 50px 40px;
     border-radius: 15px;
+    @media #{$xs}{
+        padding: 30px 20px;
+    }
     &-icon{
         & i{
             font-size: 85px;
@@ -58,11 +61,23 @@
             line-height: 1.2;
             font-family: var(--tp-fonts-heading);
             margin-bottom: 0;
+            @media #{$xl}{
+                font-size: 25px;
+            }
+            @media #{$xs}{
+                font-size: 20px;
+            }
         }
     }
 }
 
-.map-area iframe{
+.map-area{
     height: 700px;
     width: 100%;
+    @media #{$xl}{
+        height: 600px;
+    }
+    @media #{$lg , $md , $xs}{
+        height: 400px;
+    }
 }

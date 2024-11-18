@@ -118,7 +118,7 @@
   });
 
   // brand slider
-  let brandSlider2 = new Swiper(".tp-brand-top-active-2", {
+  let brandSlider2 = new Swiper(".tp-brand-bottom-active", {
     slidesPerView: "auto",
     freemode:true,
     loop:true,

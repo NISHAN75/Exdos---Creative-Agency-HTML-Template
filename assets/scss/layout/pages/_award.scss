@@ -17,12 +17,12 @@
                 }
             }
         }
-        & .col-md-6:nth-child(1){
+        & [class*="col-"]:nth-child(1){
             & .tpaward{
                 padding-top: 0;
             }
         }
-        & .col-md-6:nth-child(2){
+        & [class*="col-"]:nth-child(2){
             & .tpaward{
                 padding-top: 0;
                 @media#{$xs} {
@@ -30,7 +30,7 @@
                 }
             }
         }
-        & .col-md-6:nth-last-child(-n+2){
+        & [class*="col-"]:nth-last-child(-n+2){
             & .tpaward{
                padding-bottom: 0;
                border-bottom: 0;

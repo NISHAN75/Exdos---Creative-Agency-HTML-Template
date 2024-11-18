@@ -185,6 +185,7 @@
             }
         }
     }
+
 }
 .tp-about-3{
     &-shape-1 {
@@ -253,6 +254,9 @@
     border-radius: 10px;
     position: relative;
     z-index: 1;
+    @media #{$md , $xs}{
+        padding: 12px 24px;
+    }
     &-wrapper{
         position: absolute;
         top: -50px;
@@ -261,6 +265,9 @@
     & h2{
         font-size: 100px;
         margin-right: 20px;
+        @media #{$md , $xs}{
+            font-size: 70px;
+        }
     }
 
     &-bg{

@@ -162,18 +162,31 @@
     display: inline-flex;
     line-height: 1;
     font-size: 52px;
+    & i{
+        display: inline-block;
+        transform: translateY(6px);
+    }
 }
-.tp-team-nav{
-    @media #{$lg}{
-        margin-bottom: 20px;
-    } 
-    & span{
-        height: 12px;
-        width: 12px;
-        display: inline-flex;
-        background: #DBDBDB;
-        border-radius: 100%;
-        margin: 0 10px;
+.tp-team{
+    &-nav{
+        @media #{$lg}{
+            margin-bottom: 20px;
+        } 
+        & span{
+            height: 12px;
+            width: 12px;
+            display: inline-flex;
+            background: #DBDBDB;
+            border-radius: 100%;
+            margin: 0 10px;
+        }
+    }
+    &-details{
+        &-thum{
+            & img{
+                width: 100%;
+            }
+        }
     }
 }
 
@@ -230,6 +243,10 @@
         border-top: 1px solid #ddd;
         border-bottom: 1px solid #ddd;
         padding: 9px 20px;
+        @media #{$xs}{
+            padding: 9px 5px;
+        }
+        
         & i{
             color: #0057FC;
             font-size: 16px;
@@ -239,4 +256,10 @@
         }
     }
     
+}
+
+.tp-team-details-content{
+    @media #{$lg , $md , $xs}{
+        padding-left: 0;
+    }
 }
