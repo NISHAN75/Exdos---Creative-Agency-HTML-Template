@@ -51,17 +51,15 @@
 
     }
     &-input{
-        width: calc(100% - 205px);
+        width: calc(100% - 215px);
         @media#{$xs} {
             width: 100%;
             margin-bottom: 20px;
         }
-        & i{
+        & img{
             position: absolute;
             right: 20px;
             top: 22px;
-            color: #fff;
-            font-size: 16px;
         }
     }
     &-back {
@@ -102,12 +100,16 @@
             color: #EEEBE6;
         }
         .tp-newsletter-input {
-            width: calc(100% - 215px);
+            width: calc(100% - 225px);
             @media #{$xs}{
                 width: 100%;
             }
             & i{
                 color: #57595C; 
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
             }
         }
 

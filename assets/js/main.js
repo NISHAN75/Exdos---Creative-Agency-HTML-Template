@@ -2,6 +2,17 @@
   "use strict";
 
 
+  // header sticky
+  var windowOn=$(window);
+  windowOn.on('scroll' , function(){
+    var scroll = windowOn.scrollTop();
+    if(scroll < 100){
+      $("#tp-header-sticky").removeClass("header-sticky");
+    } else{
+      $("#tp-header-sticky").addClass("header-sticky");
+    }
+  })
+
     // mobile menu 
     var tpMenuWrap = $('.tp-mobile-menu-active > ul').clone();
     var tpSideMenu = $('.tp-offcanvas-menu nav');
@@ -37,6 +48,17 @@
       $(".tp-offcanvas-overlay").removeClass("tp-offcanvas-overlay-open");
   });
   // offcanvas menu
+
+  // search box menu
+  $(".tp-search-toogle").on("click", function() {
+      $(".tp-header-search-bar").addClass("tp-search-open");
+      $(".tp-offcanvas-overlay").addClass("tp-offcanvas-overlay-open");
+  });
+  $(".tp-search-close , .tp-offcanvas-overlay").on("click", function() {
+      $(".tp-header-search-bar").removeClass("tp-search-open");
+      $(".tp-offcanvas-overlay").removeClass("tp-offcanvas-overlay-open");
+  });
+  // search box menu
 
 
   // data bg img
@@ -332,7 +354,6 @@
 
   // map
   if ($('body').hasClass('contact-page')) {
-    console.log("hi")
     const customStyle = [
       // Example JSON style
       {
@@ -440,7 +461,25 @@
   
     initMap();
   }
- 
+
+  // wow js 
+  new WOW().init();
+
+  $(window).on("load" , function(){
+    preloader();
+    wowAnimation();
+  });
+
+  function wowAnimation(){
+    var wow = new WOW({
+      boxClass:'wow',
+      animateClass: 'animated',
+      offset:0,
+      mobile:false,
+      live:true
+    });
+    wow.init();
+  }
 
 
 })(jQuery);

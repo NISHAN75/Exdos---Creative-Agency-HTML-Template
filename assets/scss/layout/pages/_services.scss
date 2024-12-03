@@ -161,6 +161,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.20);
     padding: 17px 0;
     padding-bottom: 31px;
+    cursor: pointer;
     @media #{$lg , $md , $xs}{
         padding: 10px 0;
         padding-bottom: 13px;

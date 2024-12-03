@@ -157,7 +157,7 @@
             &:hover > .sub-menu {
                 opacity: 1;
                 visibility: visible;
-                top:calc(100% + 8px);
+                top:100%;
             }
         }
     }
@@ -214,8 +214,10 @@
             @include flexbox();
             align-items: center;
 
-            @media #{$xl,$lg,$md} {
-                padding: 16px 25px;
+            @media #{$xl,$lg,$md , $xs} {
+                padding: 15px;
+                margin: 10px;
+                border-radius: 10px;
             }
         }
 
@@ -223,6 +225,9 @@
             color: #fff;
             font-size: 60px;
             line-height: 0;
+            @media #{$xs} {
+                font-size: 40px;
+            }
         }
     }
 
@@ -341,20 +346,28 @@
     opacity: 0;
     visibility: hidden;
     z-index: 2;
-    @include transition(0.2s);
-    @media #{$xl , $lg , $md , $xs}{
+    @include transition(0.3s);
+    @media #{$lg ,$md , $xs}{
         width: auto;
         opacity: 1;
         visibility: visible;
         position: static;
         @include transition(inherit);
     }
+    @media #{$xl}{
+        width: 900px;
+    }
 }
 .tp-main-menu  .tp-mega-menu a{
     padding: 0;
     color: #23252D;
+    & h3{
+        @include  transition(0.3s)
+    }
     &:hover{
-        color: var(--tp-theme-color-2);
+        & h3{
+            color: var(--tp-theme-orange);
+        }
     }
 }
 .tp-home-thumb{
@@ -367,4 +380,41 @@
 }
 .tp-home-thumb img{
     box-shadow: 0px 2px 6px rgba(1,15,28,0.2);
+}
+
+// sticky
+
+@keyframes tpfadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .tpfadeInDown {
+    animation: tpfadeInDown 0.8s ease-out forwards;
+  }
+  .header-sticky{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 999;
+
+    -webkit-animation: 0.7s ease-in-out 0s normal 1 running tpfadeInDown;
+    animation: 0.7s ease-in-out 0s normal none 1 running tpfadeInDown;
+    box-shadow: 0px 20px 30px rgba(167 , 167 , 167 , 0.1);
+    &.tp-header{
+        &-1{
+            background-color: var(--tp-common-black);
+        }
+        &-2{
+            background-color: var(--tp-white);
+        }
+    }
 }
